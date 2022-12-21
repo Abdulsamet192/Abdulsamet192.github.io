@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP İle Kafe Uygulaması</title>
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.min.js">
+    <link rel="stylesheet" href="css/extra.css">
+    <link rel="icon" href="WI.png">
+
+    <style>
+        body {
+            background-image: url(22.jpg);
+            background-repeat: repeat;
+        }
+
+
+
+        .baslık {
+            font-size: 50px;
+            text-shadow: 2px 2px 3px white;
+        }
+
+
+
+        .grs {
+            font-size: 20px;
+            border-style: solid;
+
+            margin: 50px;
+            border-radius: 10px;
+        }
+
+
+
+        .baslık1 {
+            font-size: 25px;
+            text-shadow: 2px 2px 3px white;
+            margin: 50px;
+        }
+
+
+
+        .baslık2 {
+            font-size: 15px;
+            text-shadow: 2px 2px 3px white;
+            margin: 50px;
+            color: darkgreen;
+            border-style: solid;
+            border-radius: 10px;
+
+        }
+
+
+
+        .foto {
+            margin: 10px;
+            border-radius: 50px;
+        }
+
+
+
+        .alt {
+            color: white;
+        }
+
+
+
+        .fotolar {
+            border-radius: 10px;
+        }
+
+        .kody {
+            font-size: 18px;
+        }
+
+        .kody {
+            color: brown;
+            font-weight: 250px;
+            font-family: 'Times New Roman', Times, serif;
+
+        }
+
+        .grss {
+            font-size: 25px;
+        }
+    </style>
+
+
+
+</head>
+
+
+
+<body>
+    <header>
+
+        <div class="baslık">
+            <strong>
+                <p class="text-center">PHP İle Veri Tabanından Veri Çekip Kafe Menü Uygulaması Yapımı</p>
+            </strong>
+        </div>
+    </header>
+
+    <div class="grs">
+        <p>Bu projemizde birden fazla etiket ve yazım dilini kullanarak bir kafe uygulaması yapacağız.
+            HTML, CSS,Bootstrap, JavaScript ve asıl ana merkezimiz olan PHP’yi kullanacağız.
+            Bunun yanında PhpMyadmin ile beraber veri tabanı oluşturup gerekli parametreleri girip verilerimizi
+            buradan çekeceğiz(örnek olarak ürün adı, fiyatı, ürün numarası) Öncelikle şundan bahsedeyim ana hedef PHP
+            olduğu için diğer kısımlara
+            yüzeysel olarak değinip PHP kodlarını açıklayacağım. <a href="https://github.com/Abdulsamet192">Tüm kodlara github sayfamdan ulaşabilirsiniz.
+                <a href="https://drive.google.com/file/d/1jLE5fHsSV3P4uHN2ZrxRkfrWrHKirXoh/view?usp=share_link">Sitenin videosuna buradan bakabilirsiniz.</a>
+            </a>
+        </p>
+    </div>
+
+
+    <div class="baslık2">
+        <h3 class="start">HTML Ve CSS </h3>
+        <center>
+            <p class="grss">
+                İlk olarak HTML ve CSS etiketlerini kullanarak kafemizin temasına uygun görseller, hoverler, renk
+                temaları, geçişler,
+                animasyonlar ve efektler kullanarak göze hitap eden bir wep sayfası oluşturuyoruz. Bu aşamada Dikkat
+                etmemiz gereken
+                projede çok fazla karışıklık olmaması ve değişiklikleri kolay yapabilmek için düzenli ve
+                adlandırmalarını açıklayıcı
+                biçimde yapmalıyız. Daha sonra sayfalarımızı oluşturuyoruz. Ana yemek, soğuk içecekler, sıcak içecekler
+                ve kafenin
+                hakkında kısmı. Buradan önemli olan nokta Php kodlarımız çalışabilmesi için php kullanılacak yerlerde
+                sayfa uzantısını
+                php yapma aksi takdirde kodlar çalışmaz. HTML, CSS ve Php iç içe kullanıla bilen yapılardır.
+            </p>
+            <p class="grss">Dosya uzantı kullanımları</p>
+            <img class="fotolar" src="görseller/uzantılar.png" alt="uzantılar" width="200px">
+            <br> <br>
+        </center>
+    </div>
+
+
+
+    <div class="baslık2">
+        <h3 class="start">PHP Kullanabilmek İçin Gerekli Programlar</h3>
+        <center>
+            <p class="grss">
+                PHP kullanabilmek ve veri tabanından veri çekmek için localhost gereklidir. Bunun için farklı programlar
+                var. Ben bu projede
+                <a href="https://www.apachefriends.org/tr/index.html">XAMPP</a> ve phpmyadmini kullanacağım. Xampp
+                ücretsiz ve gayet basittir. Kendi web sitesinden
+                kurulumu yaptıktan sonra programı çalıştırıyoruz ve çıkan ekrandan apache server ve MySql kısmını
+                çalıştırıyoruz. Bu sayede bilgisayarımızı bir
+                sunucu gibi kullanıp belirli portlardan php ile veri çekebileceğiz.
+            </p>
+            <img class="fotolar" src="görseller/xamp.png" alt="uzantılar" width="500px">
+            <br> <br>
+        </center>
+
+    </div>
+
+    <div class="baslık2">
+        <h3 class="start">JavaScript ile sayfa yönlendirmesi</h3>
+        <center>
+            <p class="grss">
+                Bunu yapmamızın sebebi sitedeki kullanıcının kendi kullanıcı adı ve şifresi ile phpmayadmine bağlanıp
+                ürün ekleyip, çıkarıp ve düzenleyebilmesidir.
+            </p>
+        </center>
+        <p class="grss">
+            <xmp>
+
+                <html>
+
+                <head>
+                    <title>Admin Girişi</title>
+                    <script language="javascript" type="text/javascript">
+                        var ad = prompt("Adınızı Giriniz");                            //promptun açılıp adınızı girin bildirisinin geldiği kısım
+                        var sifre = prompt("Şifrenizi Giriniz");                       //promptun açılıp şifrenin istendiği kısım
+                        if (ad == "Samet" && sifre == "Samet147") {                    //artık if kullanarak girilen ad ve şifre burada olan ile aynıysa ve ikisi eşleniyorsa sayfaya yönlendiriyor
+                            document.write(); {
+                                window.location.href = "http://localhost/phpmyadmin/"; //yönlendirilecek sayfa
+                            }
+                        }
+                        else {
+                            document.write("Kullanıcı adı veya şifre hatalı");         //eğer kullanıcı adı veya şifre hatalı ise bu bildiri gelecek
+                        }
+                    </script>
+                </head>
+
+                </html>
+
+            </xmp>
+        </p>
+        <center>
+            <img class="fotolar" src="görseller/giris1.png" alt="uzantılar" width="500px">
+
+            <img class="fotolar" src="görseller/giris2.png" alt="uzantılar" width="500px">
+
+            <img class="fotolar" src="görseller/giris3.png" alt="uzantılar" width="500px">
+            <br> <br>
+        </center>
+
+
+    </div>
+
+    <div class="baslık2">
+        <h3 class="start">Veri tabanı oluşturma</h3>
+        <center>
+            <p class="grss">
+                Xampp'den apache server ve mysql kısmını aktif edip bu http://localhost/phpmyadmin/ uzantı ile admin
+                sayfasına gidiyoruz.
+            </p>
+
+
+
+            <img class="fotolar" src="görseller/v1.png" alt="uzantılar" width="200px">
+            <p>Yeni kısmından veri tabanı oluşturuyoruz.</p>
+            <br><br>
+
+            <img class="fotolar" src="görseller/v2.png" alt="uzantılar" width="500px">
+            <p>Veri tabanı adı giriyoruz.</p>
+            <br><br>
+
+            <img class="fotolar" src="görseller/v3.png" alt="uzantılar" width="500px">
+            <p>Tablo için isim belirliyoruz.</p>
+            <br> <br>
+            <img class="fotolar" src="görseller/v4.png" alt="uzantılar" width="200px">
+            <p>Belirlediğimiz sütunlara isimleri karakter tiplerini ve uzunluklarını giriyoruz.</p>
+            <br><br>
+
+            <img class="fotolar" src="görseller/v5.png" alt="uzantılar" width="500px">
+            <p>İstenilen ürün bilgileri gerekli satırlara giriyoruz.</p>
+            <br><br>
+
+            <img class="fotolar" src="görseller/v6.png" alt="uzantılar" width="500px">
+            <p>Veri tabanımız hazır artık istediğimiz zaman bu sayfadan değişiklik yapabiliriz.</p>
+            <br> <br>
+        </center>
+    </div>
+
+
+    <div class="baslık2">
+        <h3 class="start">Php ile veri çekilmesi</h3>
+        <center>
+            <p class="grss">
+                Bu kısımda artık xampp'den mysql ve apache serverı aktif ediyoruz.
+            </p>
+        </center>
+        <p class="grss">
+            <xmp>
+                <?php                                                                  //php açılış etiketi
+                error_reporting(0);                                                    //sayfa açılmaz ise verilecek eror
+                $servername = "localhost";                                             //localhost bağlantısını değişkene atandığı kısım 
+                $username = "root";               
+                $password = "";
+                $dbname = "db";                                                        //verilerin hangi veri tabanından alınacağının belirlendiği kısım
+                $conn = new mysqli($servername, $username, $password, $dbname);        //varolan verilerden hangilerinin getireleceği belirlendiği
+                $new = mysqli_set_charset($conn, "utf8");
+                $bul = "SELECT * FROM ilanlar";                                        //deçilen veri tabanındaki ilanlar bölümündeki tüm ilanların seçilmesi
+                $kayit = $conn->query($bul);                                           //varolan verileri sıra ile bir değişkene atıyoruz
+                if($kayit->num_rows>0){                                                //0. indexten itibaren bir bir arttırarak verileri alıyoruz
+                    while($satir =$kayit->fetch_assoc()){
+                        echo $satir["ilan_baslik"]." ".$satir["ilan_fiyat"]."<br>";  } //artık bu kısımda hangi verileri istediğimizi belirterek ekrana yazdırıyoruz
+                }
+                        $conn->close();
+                 ?> //php kapanış etiketi
+
+            </xmp>
+        </p>
+        <center>
+            <img class="fotolar" src="görseller/phpiçerik.png" alt="uzantılar" width="500px">
+        </center>
+
+        <div class="baslık2">
+            <h3 class="start">Site Görselleri</h3>
+           <center>
+            <img src="görseller/s1.png" alt="" width="1000px">
+           <br><br>
+           <img src="görseller/s2.png" alt="" width="1000px">
+           </center>
+          
+    
+
+        <div class="bg-dark text-lıght">
+            <footer class="container py-5 mt-5">
+                <div class="row">
+                    <div class="col-12 col-md">
+                        <h5 class="alt">Kafe Uygulaması</h5>
+                        <small class="d-block mb-3 text-muted">© 2021-2022</small>
+                    </div>
+                    <div class="col-6 col-md">
+                        <center>
+                            <h4 class="alt">Abdul Samet Alınmış</h4>
+                            <h6 class="alt">21430070046</h6>
+                            <h6 class="alt">Bilişim Sistemleri ve Teknolojileri</h6>
+                            <h6 class="alt"><a href="https://www.linkedin.com/in/abdulsametalnms/">Linkedin Hesabım</a>
+                            </h6>
+                            <h6 class="alt"><a href="https://github.com/Abdulsamet192">Github Hesabım </a></h6>
+                        </center>
+
+                    </div>
+                    <div>
+                        <center><a href="https://www.linkedin.com/in/abdulsametalnms/"><img class="fotolar" src="WI.png"
+                                    margin: 50px; width="250px" alt="logom"></a></center>
+                    </div>
+            </footer>
+
+            <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
