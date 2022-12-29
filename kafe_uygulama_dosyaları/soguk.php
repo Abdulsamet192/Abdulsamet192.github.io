@@ -82,13 +82,6 @@ if($kayit->num_rows>0){
                     </ul>
                 </div>
 
-
-
-
-
-
-
-
                 <div class="footer-col">
                     <h4>İLETİŞİM ADRESLERİ</h4>
                     <ul>
