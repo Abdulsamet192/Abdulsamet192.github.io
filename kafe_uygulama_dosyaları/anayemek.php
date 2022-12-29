@@ -55,21 +55,6 @@ if($kayit->num_rows>0){
 </font>
 </center>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <br><br><br><br>
     <footer class="footer">
         <div class="a container">
@@ -95,11 +80,6 @@ if($kayit->num_rows>0){
                             <li><a href="Hakkımda.html">Hakkında</a></li>
                     </ul>
                 </div>
-
-
-
-
-
 
 
 
